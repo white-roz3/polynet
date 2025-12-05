@@ -1,5 +1,5 @@
 {
-  "name": "polyseer",
+  "name": "kalshinet",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -13,11 +13,21 @@
     "test:valyu": "tsx scripts/test-valyu-search.ts",
     "test:valyu:simple": "tsx scripts/test-valyu-simple.ts",
     "test:voice": "tsx scripts/test-voice-call.ts",
-    "test:kalshi": "tsx scripts/test-kalshi-integration.ts"
+    "test:kalshi": "tsx scripts/test-kalshi-integration.ts",
+    "demo:agents": "tsx scripts/demo-autonomous-agents.ts",
+    "demo:core-agents": "tsx scripts/demo-core-agents.ts",
+    "demo:x402-research": "tsx scripts/demo-x402-research.ts",
+    "test:accuracy": "tsx scripts/test-accuracy-tracking.ts",
+    "test:predictions": "tsx scripts/test-predictions-system.ts",
+    "seed:celebrities": "tsx scripts/seed-celebrities.ts",
+    "seed:markets": "tsx scripts/seed-markets.ts",
+    "sync:markets": "tsx scripts/sync-markets.ts",
+    "seed:all": "npm run sync:markets && npm run seed:celebrities"
   },
   "dependencies": {
     "@ai-sdk/groq": "^2.0.16",
     "@ai-sdk/openai": "^2.0.23",
+    "@anthropic-ai/sdk": "^0.68.0",
     "@polar-sh/ingestion": "^0.3.1",
     "@polar-sh/sdk": "^0.34.14",
     "@polymarket/clob-client": "^1.0.1",
@@ -34,10 +44,12 @@
     "@supabase/ssr": "^0.7.0",
     "@supabase/supabase-js": "^2.56.1",
     "@tanstack/react-query": "^5.85.5",
+    "@types/better-sqlite3": "^7.6.13",
     "@types/three": "^0.179.0",
     "@vercel/analytics": "^1.5.0",
     "ai": "^5.0.28",
     "axios": "^1.11.0",
+    "better-sqlite3": "^12.4.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "date-fns": "^4.1.0",

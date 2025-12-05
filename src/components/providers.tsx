@@ -4,6 +4,8 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { WagmiProvider } from 'wagmi'
 import { wagmiConfig } from '@/lib/wagmi-config'
 import { useState, type ReactNode } from 'react'
+import { ToastProvider } from '@/components/Toast'
+import { ErrorBoundary } from '@/components/ErrorBoundary'
 
 interface ProvidersProps {
   children: ReactNode
@@ -13,10 +15,14 @@ export function Providers({ children }: ProvidersProps) {
   const [queryClient] = useState(() => new QueryClient())
 
   return (
-    <WagmiProvider config={wagmiConfig}>
-      <QueryClientProvider client={queryClient}>
-        {children}
-      </QueryClientProvider>
-    </WagmiProvider>
+    <ErrorBoundary>
+      <ToastProvider>
+        <WagmiProvider config={wagmiConfig}>
+          <QueryClientProvider client={queryClient}>
+            {children}
+          </QueryClientProvider>
+        </WagmiProvider>
+      </ToastProvider>
+    </ErrorBoundary>
   )
 }

@@ -63,11 +63,31 @@ Check it out: ${shareUrl}`;
         </DialogHeader>
 
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-          <TabsList className="grid w-full grid-cols-4">
-            <TabsTrigger value="x">X</TabsTrigger>
-            <TabsTrigger value="reddit">Reddit</TabsTrigger>
-            <TabsTrigger value="link">Link</TabsTrigger>
-            <TabsTrigger value="image">Image</TabsTrigger>
+          <TabsList className="grid w-full grid-cols-4 bg-white border-4 border-black p-1 gap-1">
+            <TabsTrigger 
+              value="x" 
+              className="data-[state=active]:bg-black data-[state=active]:text-white bg-white text-black border-2 border-black font-bold"
+            >
+              X
+            </TabsTrigger>
+            <TabsTrigger 
+              value="reddit" 
+              className="data-[state=active]:bg-black data-[state=active]:text-white bg-white text-black border-2 border-black font-bold"
+            >
+              Reddit
+            </TabsTrigger>
+            <TabsTrigger 
+              value="link" 
+              className="data-[state=active]:bg-black data-[state=active]:text-white bg-white text-black border-2 border-black font-bold"
+            >
+              Link
+            </TabsTrigger>
+            <TabsTrigger 
+              value="image" 
+              className="data-[state=active]:bg-black data-[state=active]:text-white bg-white text-black border-2 border-black font-bold"
+            >
+              Image
+            </TabsTrigger>
           </TabsList>
 
           <TabsContent value="x" className="space-y-4">

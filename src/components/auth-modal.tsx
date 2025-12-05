@@ -96,9 +96,19 @@ export function AuthModal({ open, onOpenChange, defaultTab = 'signin' }: AuthMod
         </DialogHeader>
 
         <Tabs value={tab} onValueChange={(v) => setTab(v as 'signin' | 'signup')}>
-          <TabsList className="grid w-full grid-cols-2">
-            <TabsTrigger value="signin">Sign In</TabsTrigger>
-            <TabsTrigger value="signup">Sign Up</TabsTrigger>
+          <TabsList className="grid w-full grid-cols-2 bg-white border-4 border-black p-1 gap-1">
+            <TabsTrigger 
+              value="signin" 
+              className="data-[state=active]:bg-black data-[state=active]:text-white bg-white text-black border-2 border-black font-bold"
+            >
+              Sign In
+            </TabsTrigger>
+            <TabsTrigger 
+              value="signup" 
+              className="data-[state=active]:bg-black data-[state=active]:text-white bg-white text-black border-2 border-black font-bold"
+            >
+              Sign Up
+            </TabsTrigger>
           </TabsList>
 
           <TabsContent value="signin" className="space-y-4">
