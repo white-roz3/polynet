@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import '@/styles/kalshinet.css';
+import '@/styles/polynet.css';
 import { MainNav } from '@/components/navigation/MainNav';
 
 interface Prediction {
@@ -139,7 +139,7 @@ export default function PredictionsPage() {
   };
   
   return (
-    <div className="kalshinet-container min-h-screen">
+    <div className="polynet-container min-h-screen">
       <MainNav />
       
       <main className="max-w-[1400px] mx-auto px-6 py-8">
@@ -152,37 +152,37 @@ export default function PredictionsPage() {
         {/* Stats Dashboard */}
         {stats && (
           <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-8">
-            <div className="kalshinet-stats-card">
-              <div className="kalshinet-stats-card-value">{stats.total}</div>
-              <div className="kalshinet-stats-card-label">Total Predictions</div>
+            <div className="polynet-stats-card">
+              <div className="polynet-stats-card-value">{stats.total}</div>
+              <div className="polynet-stats-card-label">Total Predictions</div>
             </div>
             
-            <div className="kalshinet-stats-card">
-              <div className="kalshinet-stats-card-value text-[#00C853]">{stats.accuracy}%</div>
-              <div className="kalshinet-stats-card-label">Accuracy ({stats.correct}/{stats.resolved})</div>
+            <div className="polynet-stats-card">
+              <div className="polynet-stats-card-value text-[#00C853]">{stats.accuracy}%</div>
+              <div className="polynet-stats-card-label">Accuracy ({stats.correct}/{stats.resolved})</div>
             </div>
             
-            <div className="kalshinet-stats-card">
-              <div className={`kalshinet-stats-card-value ${parseFloat(stats.totalProfitLoss) >= 0 ? 'text-[#00C853]' : 'text-red-500'}`}>
+            <div className="polynet-stats-card">
+              <div className={`polynet-stats-card-value ${parseFloat(stats.totalProfitLoss) >= 0 ? 'text-[#00C853]' : 'text-red-500'}`}>
                 {parseFloat(stats.totalProfitLoss) >= 0 ? '+' : ''}${stats.totalProfitLoss}
               </div>
-              <div className="kalshinet-stats-card-label">Profit/Loss</div>
+              <div className="polynet-stats-card-label">Profit/Loss</div>
             </div>
             
-            <div className="kalshinet-stats-card">
-              <div className="kalshinet-stats-card-value">{stats.currentStreak}</div>
-              <div className="kalshinet-stats-card-label">Win Streak (Best: {stats.longestStreak})</div>
+            <div className="polynet-stats-card">
+              <div className="polynet-stats-card-value">{stats.currentStreak}</div>
+              <div className="polynet-stats-card-label">Win Streak (Best: {stats.longestStreak})</div>
             </div>
             
-            <div className="kalshinet-stats-card">
-              <div className="kalshinet-stats-card-value">${stats.totalResearchCost}</div>
-              <div className="kalshinet-stats-card-label">Research Cost</div>
+            <div className="polynet-stats-card">
+              <div className="polynet-stats-card-value">${stats.totalResearchCost}</div>
+              <div className="polynet-stats-card-label">Research Cost</div>
             </div>
           </div>
         )}
         
         {/* Filters */}
-        <div className="kalshinet-card p-6 mb-6">
+        <div className="polynet-card p-6 mb-6">
           <div className="flex justify-between items-center mb-4">
             <h3 className="font-semibold text-gray-900">Filters</h3>
             <button onClick={clearFilters} className="text-sm text-[#00C853] hover:underline">
@@ -196,7 +196,7 @@ export default function PredictionsPage() {
               <select
                 value={filters.agentId}
                 onChange={(e) => setFilters({ ...filters, agentId: e.target.value })}
-                className="kalshinet-select"
+                className="polynet-select"
               >
                 <option value="">All Agents</option>
                 {agents.map(agent => (
@@ -210,7 +210,7 @@ export default function PredictionsPage() {
               <select
                 value={filters.prediction}
                 onChange={(e) => setFilters({ ...filters, prediction: e.target.value })}
-                className="kalshinet-select"
+                className="polynet-select"
               >
                 <option value="">Yes & No</option>
                 <option value="YES">Yes Only</option>
@@ -223,7 +223,7 @@ export default function PredictionsPage() {
               <select
                 value={filters.resolved}
                 onChange={(e) => setFilters({ ...filters, resolved: e.target.value })}
-                className="kalshinet-select"
+                className="polynet-select"
               >
                 <option value="">All</option>
                 <option value="true">Resolved</option>
@@ -236,7 +236,7 @@ export default function PredictionsPage() {
               <select
                 value={filters.correct}
                 onChange={(e) => setFilters({ ...filters, correct: e.target.value })}
-                className="kalshinet-select"
+                className="polynet-select"
               >
                 <option value="">All</option>
                 <option value="true">Correct</option>
@@ -249,7 +249,7 @@ export default function PredictionsPage() {
               <select
                 value={filters.sortBy}
                 onChange={(e) => setFilters({ ...filters, sortBy: e.target.value })}
-                className="kalshinet-select"
+                className="polynet-select"
               >
                 <option value="created_at">Date</option>
                 <option value="confidence">Confidence</option>
@@ -260,7 +260,7 @@ export default function PredictionsPage() {
         </div>
         
         {/* Predictions List */}
-        <div className="kalshinet-card overflow-hidden">
+        <div className="polynet-card overflow-hidden">
           <div className="p-4 border-b border-gray-200 bg-gray-50">
             <span className="font-semibold text-gray-900">Predictions ({predictions.length})</span>
           </div>
@@ -272,9 +272,9 @@ export default function PredictionsPage() {
             </div>
           ) : predictions.length === 0 ? (
             <div className="p-12 text-center">
-              <div className="kalshinet-empty-icon">📊</div>
-              <h3 className="kalshinet-empty-title">No predictions found</h3>
-              <p className="kalshinet-empty-description">Try adjusting your filters</p>
+              <div className="polynet-empty-icon">📊</div>
+              <h3 className="polynet-empty-title">No predictions found</h3>
+              <p className="polynet-empty-description">Try adjusting your filters</p>
             </div>
           ) : (
             <div className="divide-y divide-gray-100">
@@ -296,17 +296,17 @@ export default function PredictionsPage() {
                     </div>
                     
                     <div className="flex flex-col items-end gap-2">
-                      <div className="kalshinet-yes-no">
-                        <span className={`kalshinet-yes-btn ${pred.prediction === 'YES' ? '!bg-[#00C853] !text-white' : ''}`}>
+                      <div className="polynet-yes-no">
+                        <span className={`polynet-yes-btn ${pred.prediction === 'YES' ? '!bg-[#00C853] !text-white' : ''}`}>
                           Yes
                         </span>
-                        <span className={`kalshinet-no-btn ${pred.prediction === 'NO' ? '!bg-[#E91E8C] !text-white' : ''}`}>
+                        <span className={`polynet-no-btn ${pred.prediction === 'NO' ? '!bg-[#E91E8C] !text-white' : ''}`}>
                           No
                         </span>
                       </div>
                       
                       {pred.outcome && (
-                        <span className={`kalshinet-badge ${pred.correct ? 'kalshinet-badge-success' : 'kalshinet-badge-error'}`}>
+                        <span className={`polynet-badge ${pred.correct ? 'polynet-badge-success' : 'polynet-badge-error'}`}>
                           {pred.correct ? '✓ Correct' : '✗ Wrong'}
                         </span>
                       )}
@@ -350,14 +350,14 @@ export default function PredictionsPage() {
 
 function PredictionDetailModal({ prediction, onClose }: { prediction: Prediction; onClose: () => void; }) {
   return (
-    <div className="kalshinet-modal-overlay" onClick={onClose}>
-      <div className="kalshinet-modal max-w-2xl" onClick={(e) => e.stopPropagation()}>
-        <div className="kalshinet-modal-header">
-          <h2 className="kalshinet-modal-title">Prediction Details</h2>
+    <div className="polynet-modal-overlay" onClick={onClose}>
+      <div className="polynet-modal max-w-2xl" onClick={(e) => e.stopPropagation()}>
+        <div className="polynet-modal-header">
+          <h2 className="polynet-modal-title">Prediction Details</h2>
           <button onClick={onClose} className="text-gray-400 hover:text-gray-600 text-2xl">×</button>
         </div>
         
-        <div className="kalshinet-modal-body space-y-6">
+        <div className="polynet-modal-body space-y-6">
           {/* Market Question */}
           <div>
             <div className="text-sm text-gray-500 mb-1">Market</div>
@@ -377,7 +377,7 @@ function PredictionDetailModal({ prediction, onClose }: { prediction: Prediction
           </div>
           
           {/* Agent Info */}
-          <div className="kalshinet-card p-4">
+          <div className="polynet-card p-4">
             <div className="text-sm text-gray-500 mb-1">Agent</div>
             <div className="font-semibold text-gray-900">{prediction.agents?.name || 'Unknown'}</div>
             <div className="text-sm text-gray-500">
@@ -388,13 +388,13 @@ function PredictionDetailModal({ prediction, onClose }: { prediction: Prediction
           
           {/* Prediction & Price */}
           <div className="grid grid-cols-2 gap-4">
-            <div className="kalshinet-card p-4 text-center">
+            <div className="polynet-card p-4 text-center">
               <div className="text-sm text-gray-500 mb-2">Prediction</div>
               <div className="text-4xl font-bold text-gray-900 mb-1">{prediction.prediction}</div>
               <div className="text-sm text-gray-500">Confidence: {(prediction.confidence * 100).toFixed(1)}%</div>
             </div>
             
-            <div className="kalshinet-card p-4 text-center">
+            <div className="polynet-card p-4 text-center">
               <div className="text-sm text-gray-500 mb-2">Market Price</div>
               <div className="text-4xl font-bold text-gray-900 mb-1">
                 {((prediction.price_at_prediction || 0) * 100).toFixed(1)}%
@@ -404,7 +404,7 @@ function PredictionDetailModal({ prediction, onClose }: { prediction: Prediction
           </div>
           
           {/* Reasoning */}
-          <div className="kalshinet-card p-4">
+          <div className="polynet-card p-4">
             <div className="text-sm text-gray-500 mb-2">Reasoning</div>
             <div className="text-sm text-gray-700 leading-relaxed">
               {prediction.reasoning || 'No reasoning provided'}
@@ -413,7 +413,7 @@ function PredictionDetailModal({ prediction, onClose }: { prediction: Prediction
           
           {/* Financial Info */}
           <div className="grid grid-cols-2 gap-4">
-            <div className="kalshinet-card p-4 text-center">
+            <div className="polynet-card p-4 text-center">
               <div className="text-sm text-gray-500 mb-1">Research Cost</div>
               <div className="text-2xl font-bold text-gray-900">
                 ${prediction.research_cost?.toFixed(2) || '0.00'}
@@ -421,7 +421,7 @@ function PredictionDetailModal({ prediction, onClose }: { prediction: Prediction
             </div>
             
             {prediction.profit_loss !== null && (
-              <div className="kalshinet-card p-4 text-center">
+              <div className="polynet-card p-4 text-center">
                 <div className="text-sm text-gray-500 mb-1">Profit/Loss</div>
                 <div className={`text-2xl font-bold ${prediction.profit_loss >= 0 ? 'text-[#00C853]' : 'text-red-500'}`}>
                   {prediction.profit_loss >= 0 ? '+' : ''}${prediction.profit_loss.toFixed(2)}
@@ -432,7 +432,7 @@ function PredictionDetailModal({ prediction, onClose }: { prediction: Prediction
           
           {/* Outcome */}
           {prediction.outcome ? (
-            <div className={`kalshinet-card p-4 ${prediction.correct ? 'bg-green-50 border-green-200' : 'bg-red-50 border-red-200'}`}>
+            <div className={`polynet-card p-4 ${prediction.correct ? 'bg-green-50 border-green-200' : 'bg-red-50 border-red-200'}`}>
               <div className="text-sm text-gray-500 mb-2">Outcome</div>
               <div className="flex justify-between items-center">
                 <div>
@@ -447,7 +447,7 @@ function PredictionDetailModal({ prediction, onClose }: { prediction: Prediction
               </div>
             </div>
           ) : (
-            <div className="kalshinet-card p-4 bg-yellow-50 border-yellow-200">
+            <div className="polynet-card p-4 bg-yellow-50 border-yellow-200">
               <div className="text-sm text-gray-500 mb-1">Status</div>
               <div className="font-semibold text-gray-900">Pending Resolution</div>
               <div className="text-sm text-gray-500">

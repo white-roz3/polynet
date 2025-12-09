@@ -1,5 +1,5 @@
 /**
- * KALSHINET - Bold Design System
+ * POLYNET - Bold Design System
  * A distinctive, high-energy aesthetic for prediction markets
  */
 
@@ -77,14 +77,14 @@ body {
 }
 
 /* Container with animated gradient background */
-.kalshinet-container {
+.polynet-container {
   min-height: 100vh;
   background: var(--kn-void);
   position: relative;
   overflow-x: hidden;
 }
 
-.kalshinet-container::before {
+.polynet-container::before {
   content: '';
   position: fixed;
   top: 0;
@@ -116,7 +116,7 @@ body {
   }
 }
 
-.kalshinet-container::after {
+.polynet-container::after {
   content: '';
   position: fixed;
   top: 0;
@@ -170,7 +170,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Navigation */
-.kalshinet-nav {
+.polynet-nav {
   background: rgba(10, 11, 16, 0.8);
   backdrop-filter: blur(20px) saturate(180%);
   border-bottom: 1px solid var(--kn-border);
@@ -179,7 +179,7 @@ h1, h2, h3, h4, h5, h6 {
   z-index: 100;
 }
 
-.kalshinet-nav-inner {
+.polynet-nav-inner {
   max-width: 1600px;
   margin: 0 auto;
   padding: 0 24px;
@@ -189,13 +189,13 @@ h1, h2, h3, h4, h5, h6 {
   height: 72px;
 }
 
-.kalshinet-nav-links {
+.polynet-nav-links {
   display: flex;
   align-items: center;
   gap: 4px;
 }
 
-.kalshinet-nav-link {
+.polynet-nav-link {
   font-family: var(--font-body);
   font-size: 14px;
   font-weight: 500;
@@ -207,17 +207,17 @@ h1, h2, h3, h4, h5, h6 {
   position: relative;
 }
 
-.kalshinet-nav-link:hover {
+.polynet-nav-link:hover {
   color: var(--kn-text);
   background: var(--kn-elevated);
 }
 
-.kalshinet-nav-link.active {
+.polynet-nav-link.active {
   color: var(--kn-violet);
   background: var(--kn-violet-glow);
 }
 
-.kalshinet-nav-link.active::after {
+.polynet-nav-link.active::after {
   content: '';
   position: absolute;
   bottom: -1px;
@@ -231,7 +231,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Cards */
-.kalshinet-card {
+.polynet-card {
   background: var(--kn-surface);
   border: 1px solid var(--kn-border);
   border-radius: var(--kn-radius-lg);
@@ -240,7 +240,7 @@ h1, h2, h3, h4, h5, h6 {
   overflow: hidden;
 }
 
-.kalshinet-card::before {
+.polynet-card::before {
   content: '';
   position: absolute;
   top: 0;
@@ -250,19 +250,19 @@ h1, h2, h3, h4, h5, h6 {
   background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
 }
 
-.kalshinet-card:hover {
+.polynet-card:hover {
   border-color: var(--kn-border-hover);
   transform: translateY(-2px);
   box-shadow: var(--kn-shadow);
 }
 
-.kalshinet-card-glow:hover {
+.polynet-card-glow:hover {
   border-color: var(--kn-border-active);
   box-shadow: var(--kn-glow-mint);
 }
 
 /* Buttons */
-.kalshinet-btn {
+.polynet-btn {
   font-family: var(--font-body);
   font-weight: 600;
   font-size: 14px;
@@ -279,19 +279,19 @@ h1, h2, h3, h4, h5, h6 {
   overflow: hidden;
 }
 
-.kalshinet-btn-primary {
+.polynet-btn-primary {
   background: linear-gradient(135deg, rgba(31, 184, 205, 0.3) 0%, rgba(66, 133, 244, 0.3) 25%, rgba(139, 92, 246, 0.4) 50%, rgba(255, 46, 151, 0.3) 100%);
   color: var(--kn-text);
   border: 1px solid rgba(139, 92, 246, 0.5);
   box-shadow: 0 4px 20px rgba(139, 92, 246, 0.2);
 }
 
-.kalshinet-btn-primary:hover {
+.polynet-btn-primary:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 30px rgba(139, 92, 246, 0.3);
 }
 
-.kalshinet-btn-primary::before {
+.polynet-btn-primary::before {
   content: '';
   position: absolute;
   top: 0;
@@ -302,33 +302,33 @@ h1, h2, h3, h4, h5, h6 {
   transition: left 0.5s ease;
 }
 
-.kalshinet-btn-primary:hover::before {
+.polynet-btn-primary:hover::before {
   left: 100%;
 }
 
-.kalshinet-btn-secondary {
+.polynet-btn-secondary {
   background: var(--kn-elevated);
   color: var(--kn-text);
   border: 1px solid var(--kn-border);
 }
 
-.kalshinet-btn-secondary:hover {
+.polynet-btn-secondary:hover {
   background: var(--kn-raised);
   border-color: var(--kn-border-hover);
 }
 
-.kalshinet-btn-ghost {
+.polynet-btn-ghost {
   background: transparent;
   color: var(--kn-text-secondary);
 }
 
-.kalshinet-btn-ghost:hover {
+.polynet-btn-ghost:hover {
   background: var(--kn-elevated);
   color: var(--kn-text);
 }
 
 /* Stats */
-.kalshinet-stats-card {
+.polynet-stats-card {
   background: var(--kn-surface);
   border: 1px solid var(--kn-border);
   border-radius: var(--kn-radius-lg);
@@ -337,7 +337,7 @@ h1, h2, h3, h4, h5, h6 {
   overflow: hidden;
 }
 
-.kalshinet-stats-card::before {
+.polynet-stats-card::before {
   content: '';
   position: absolute;
   top: 0;
@@ -348,7 +348,7 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 3px 0 0 3px;
 }
 
-.kalshinet-stats-card-value {
+.polynet-stats-card-value {
   font-family: var(--font-display);
   font-size: 2rem;
   font-weight: 800;
@@ -356,7 +356,7 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: -0.02em;
 }
 
-.kalshinet-stats-card-label {
+.polynet-stats-card-label {
   font-size: 12px;
   font-weight: 500;
   color: var(--kn-text-muted);

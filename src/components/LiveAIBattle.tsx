@@ -70,7 +70,7 @@ export default function LiveAIBattle() {
 
   if (loading) {
     return (
-      <div className="kalshinet-card p-4">
+      <div className="polynet-card p-4">
         <div className="text-lg font-bold mb-4 text-[#E91E8C]">⚔️ LIVE AI BATTLES</div>
         <div className="text-sm text-gray-400">Loading battles...</div>
       </div>
@@ -78,14 +78,14 @@ export default function LiveAIBattle() {
   }
 
   return (
-    <div className="kalshinet-card overflow-hidden">
+    <div className="polynet-card overflow-hidden">
       {/* Header */}
       <div className="p-4 bg-gradient-to-r from-[#E91E8C]/10 to-[#00C853]/10 border-b border-[#2a2f42]">
         <div className="flex justify-between items-center">
           <div className="text-lg font-bold text-white">▣ LIVE AI BATTLES</div>
           <button
             onClick={() => setAutoRefresh(!autoRefresh)}
-            className="kalshinet-card px-3 py-1 text-xs font-semibold text-white hover:bg-[#1e2235] transition-colors"
+            className="polynet-card px-3 py-1 text-xs font-semibold text-white hover:bg-[#1e2235] transition-colors"
           >
             {autoRefresh ? '‖ PAUSE' : '▶ PLAY'}
           </button>
@@ -112,7 +112,7 @@ export default function LiveAIBattle() {
               {/* YES vs NO */}
               <div className="grid grid-cols-2 gap-4">
                 {/* YES Camp */}
-                <div className="kalshinet-card p-3 border-[#00C853]/30 bg-[#00C853]/5">
+                <div className="polynet-card p-3 border-[#00C853]/30 bg-[#00C853]/5">
                   <div className="text-xs font-bold text-[#00C853] mb-2">
                     ✓ YES CAMP ({battle.yes.length})
                   </div>
@@ -141,7 +141,7 @@ export default function LiveAIBattle() {
                 </div>
 
                 {/* NO Camp */}
-                <div className="kalshinet-card p-3 border-[#E91E8C]/30 bg-[#E91E8C]/5">
+                <div className="polynet-card p-3 border-[#E91E8C]/30 bg-[#E91E8C]/5">
                   <div className="text-xs font-bold text-[#E91E8C] mb-2">
                     ✗ NO CAMP ({battle.no.length})
                   </div>
@@ -173,7 +173,7 @@ export default function LiveAIBattle() {
               {/* View Full Battle */}
               <Link
                 href={`/battles/${marketId}`}
-                className="block mt-3 text-center kalshinet-card px-3 py-2 text-xs font-semibold text-white hover:bg-[#1e2235] transition-colors"
+                className="block mt-3 text-center polynet-card px-3 py-2 text-xs font-semibold text-white hover:bg-[#1e2235] transition-colors"
               >
                 VIEW FULL BATTLE →
               </Link>

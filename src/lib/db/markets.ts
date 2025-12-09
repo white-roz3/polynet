@@ -1,7 +1,17 @@
-import db, { initDatabase } from './sqlite';
+import getDb, { initDatabase } from './sqlite';
 
-// Ensure database is initialized
-initDatabase();
+// Ensure database is initialized (lazy, only when needed)
+let dbInitialized = false;
+function ensureDbInitialized() {
+  if (!dbInitialized) {
+    try {
+      initDatabase();
+      dbInitialized = true;
+    } catch (error: any) {
+      console.error('Failed to initialize database in markets.ts:', error);
+    }
+  }
+}
 
 export interface Market {
   id: string;
@@ -19,42 +29,69 @@ export interface Market {
 
 // Get all markets
 export function getAllMarkets(): Market[] {
-  const stmt = db.prepare('SELECT * FROM markets ORDER BY volume DESC LIMIT 100');
-  return stmt.all() as Market[];
+  try {
+    ensureDbInitialized();
+    const db = getDb();
+    if (!db) {
+      console.error('Database not available in getAllMarkets');
+      return [];
+    }
+    const stmt = db.prepare('SELECT * FROM markets ORDER BY volume DESC LIMIT 100');
+    return stmt.all() as Market[];
+  } catch (error) {
+    console.error('Error in getAllMarkets:', error);
+    return [];
+  }
 }
 
 // Get single market
 export function getMarket(id: string): Market | undefined {
-  const stmt = db.prepare('SELECT * FROM markets WHERE id = ?');
-  return stmt.get(id) as Market | undefined;
+  try {
+    const db = getDb();
+    if (!db) {
+      console.error('Database not available in getMarket');
+      return undefined;
+    }
+    const stmt = db.prepare('SELECT * FROM markets WHERE id = ?');
+    return stmt.get(id) as Market | undefined;
+  } catch (error) {
+    console.error('Error in getMarket:', error);
+    return undefined;
+  }
 }
 
 // Insert or update market
 export function upsertMarket(market: Market) {
-  const stmt = db.prepare(`
-    INSERT INTO markets (id, question, description, slug, yes_price, no_price, volume, volume_24hr, category, end_date, image_url, updated_at)
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP)
-    ON CONFLICT(id) DO UPDATE SET
-      yes_price = excluded.yes_price,
-      no_price = excluded.no_price,
-      volume = excluded.volume,
-      volume_24hr = excluded.volume_24hr,
-      updated_at = CURRENT_TIMESTAMP
-  `);
+  try {
+    const db = getDb();
+    const stmt = db.prepare(`
+      INSERT INTO markets (id, question, description, slug, yes_price, no_price, volume, volume_24hr, category, end_date, image_url, updated_at)
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP)
+      ON CONFLICT(id) DO UPDATE SET
+        yes_price = excluded.yes_price,
+        no_price = excluded.no_price,
+        volume = excluded.volume,
+        volume_24hr = excluded.volume_24hr,
+        updated_at = CURRENT_TIMESTAMP
+    `);
 
-  stmt.run(
-    market.id,
-    market.question,
-    market.description,
-    market.slug,
-    market.yes_price,
-    market.no_price,
-    market.volume,
-    market.volume_24hr,
-    market.category,
-    market.end_date,
-    market.image_url
-  );
+    stmt.run(
+      market.id,
+      market.question,
+      market.description,
+      market.slug,
+      market.yes_price,
+      market.no_price,
+      market.volume,
+      market.volume_24hr,
+      market.category,
+      market.end_date,
+      market.image_url
+    );
+  } catch (error) {
+    console.error('Error in upsertMarket:', error);
+    throw error;
+  }
 }
 
 // Sync markets from Polymarket

@@ -45,7 +45,7 @@ export default function AdminControls() {
   };
   
   return (
-    <div className="kalshinet-card p-4 mb-6 border-[#fbbf24]/30">
+    <div className="polynet-card p-4 mb-6 border-[#fbbf24]/30">
       <div className="text-[#fbbf24] font-semibold mb-4 text-sm uppercase tracking-wider">
         ▶ Admin Controls
       </div>
@@ -54,7 +54,7 @@ export default function AdminControls() {
         <button
           onClick={() => runCron('sync-markets', 'Market Sync')}
           disabled={running === 'sync-markets'}
-          className="w-full kalshinet-card px-4 py-3 font-semibold text-sm text-white hover:bg-[#1e2235] disabled:opacity-50 transition-colors"
+          className="w-full polynet-card px-4 py-3 font-semibold text-sm text-white hover:bg-[#1e2235] disabled:opacity-50 transition-colors"
         >
           {running === 'sync-markets' ? '⟲ SYNCING...' : '▣ SYNC_MARKETS'}
         </button>
@@ -62,7 +62,7 @@ export default function AdminControls() {
         <button
           onClick={() => runCron('run-agents', 'Agent Analysis')}
           disabled={running === 'run-agents'}
-          className="w-full kalshinet-card px-4 py-3 font-semibold text-sm text-white hover:bg-[#1e2235] disabled:opacity-50 transition-colors"
+          className="w-full polynet-card px-4 py-3 font-semibold text-sm text-white hover:bg-[#1e2235] disabled:opacity-50 transition-colors"
         >
           {running === 'run-agents' ? '⟲ RUNNING...' : '◎ RUN_AGENT_ANALYSIS'}
         </button>
@@ -70,7 +70,7 @@ export default function AdminControls() {
         <button
           onClick={() => runCron('resolve-markets', 'Market Resolution')}
           disabled={running === 'resolve-markets'}
-          className="w-full kalshinet-card px-4 py-3 font-semibold text-sm text-white hover:bg-[#1e2235] disabled:opacity-50 transition-colors"
+          className="w-full polynet-card px-4 py-3 font-semibold text-sm text-white hover:bg-[#1e2235] disabled:opacity-50 transition-colors"
         >
           {running === 'resolve-markets' ? '⟲ RUNNING...' : '◆ RESOLVE_MARKETS'}
         </button>
@@ -78,14 +78,14 @@ export default function AdminControls() {
         <button
           onClick={() => runCron('check-bankruptcies', 'Bankruptcy Check')}
           disabled={running === 'check-bankruptcies'}
-          className="w-full kalshinet-card px-4 py-3 font-semibold text-sm text-white hover:bg-[#1e2235] disabled:opacity-50 transition-colors"
+          className="w-full polynet-card px-4 py-3 font-semibold text-sm text-white hover:bg-[#1e2235] disabled:opacity-50 transition-colors"
         >
           {running === 'check-bankruptcies' ? '⟲ RUNNING...' : '✕ CHECK_BANKRUPTCIES'}
         </button>
       </div>
       
       {message && (
-        <div className={`text-xs p-3 kalshinet-card mt-3 ${
+        <div className={`text-xs p-3 polynet-card mt-3 ${
           message.includes('✓') ? 'border-[#00C853]/50 bg-[#00C853]/10 text-[#00C853]' : 'border-red-500/50 bg-red-500/10 text-red-400'
         }`}>
           {message}
@@ -93,7 +93,7 @@ export default function AdminControls() {
       )}
       
       {syncStats && (
-        <div className="mt-3 p-3 kalshinet-card text-xs">
+        <div className="mt-3 p-3 polynet-card text-xs">
           <div className="font-semibold mb-2 text-white">LAST SYNC RESULTS:</div>
           <div className="space-y-1 text-gray-400">
             <div className="text-[#00C853]">✓ ADDED: {syncStats.added}</div>

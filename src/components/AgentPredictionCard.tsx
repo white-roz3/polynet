@@ -121,7 +121,7 @@ export default function AgentPredictionCard({ agent }: { agent: Agent }) {
   
   return (
     <Link href={`/agents/${agent.id}`}>
-      <div className="kalshinet-card p-5 cursor-pointer hover:border-[#00C853]/50 transition-all hover:shadow-[0_0_30px_rgba(0,200,83,0.1)]">
+      <div className="polynet-card p-5 cursor-pointer hover:border-[#00C853]/50 transition-all hover:shadow-[0_0_30px_rgba(0,200,83,0.1)]">
         {/* Header */}
         <div className="flex items-center gap-3 mb-4">
           <div className="w-12 h-12 rounded-xl bg-[#1e2235] border border-[#2a2f42] flex items-center justify-center text-2xl">

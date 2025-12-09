@@ -51,16 +51,16 @@ export function MainNav() {
   };
 
   return (
-    <nav className="kalshinet-nav">
-      <div className="kalshinet-nav-inner">
+    <nav className="polynet-nav">
+      <div className="polynet-nav-inner">
         <Logo />
         
-        <div className="kalshinet-nav-links">
+        <div className="polynet-nav-links">
           {navItems.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className={`kalshinet-nav-link ${isActive(item.href) ? 'active' : ''}`}
+              className={`polynet-nav-link ${isActive(item.href) ? 'active' : ''}`}
             >
               {item.name}
             </Link>
@@ -70,7 +70,7 @@ export function MainNav() {
         <div className="flex items-center gap-3">
           <Link 
             href="/agents/create" 
-            className="kalshinet-btn kalshinet-btn-primary"
+            className="polynet-btn polynet-btn-primary"
           >
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 4v16m8-8H4" />

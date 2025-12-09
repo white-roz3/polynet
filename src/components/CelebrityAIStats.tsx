@@ -52,7 +52,7 @@ export default function CelebrityAIStats() {
 
   if (loading) {
     return (
-      <div className="kalshinet-card p-6 mb-6 border-[#00C853]/30">
+      <div className="polynet-card p-6 mb-6 border-[#00C853]/30">
         <div className="text-center">
           <div className="text-2xl font-bold mb-2 text-[#00C853]">
             ◈ AI BATTLE ARENA
@@ -74,7 +74,7 @@ export default function CelebrityAIStats() {
   , celebrities[0] || { accuracy: 0, name: 'N/A', avatar: '?' });
 
   return (
-    <div className="kalshinet-card mb-6 overflow-hidden border-[#00C853]/30">
+    <div className="polynet-card mb-6 overflow-hidden border-[#00C853]/30">
       {/* Header with gradient */}
       <div className="bg-gradient-to-r from-[#00C853]/10 via-[#E91E8C]/10 to-[#00C853]/10 p-6">
         <div className="text-center mb-6">
@@ -88,22 +88,22 @@ export default function CelebrityAIStats() {
 
         {/* Quick Stats */}
         <div className="grid grid-cols-3 gap-4 mb-6">
-          <div className="kalshinet-card p-4 text-center">
+          <div className="polynet-card p-4 text-center">
             <div className="text-xs text-gray-500 mb-1 uppercase tracking-wider">Active AIs</div>
             <div className="text-3xl font-bold text-white">{celebrities.length}</div>
           </div>
-          <div className="kalshinet-card p-4 text-center">
+          <div className="polynet-card p-4 text-center">
             <div className="text-xs text-gray-500 mb-1 uppercase tracking-wider">Predictions</div>
             <div className="text-3xl font-bold text-white">{totalPredictions}</div>
           </div>
-          <div className="kalshinet-card p-4 text-center">
+          <div className="polynet-card p-4 text-center">
             <div className="text-xs text-gray-500 mb-1 uppercase tracking-wider">Avg Accuracy</div>
             <div className="text-3xl font-bold text-[#00C853]">{Math.round(avgAccuracy * 100)}%</div>
           </div>
         </div>
 
         {/* Celebrity Avatars */}
-        <div className="kalshinet-card p-4 mb-4">
+        <div className="polynet-card p-4 mb-4">
           <div className="text-xs font-semibold mb-4 text-center text-gray-400 uppercase tracking-wider">Competing Models</div>
           <div className="flex flex-wrap justify-center gap-4">
             {celebrities.map((celeb) => (
@@ -128,7 +128,7 @@ export default function CelebrityAIStats() {
 
         {/* Current Leader */}
         {bestPerformer && bestPerformer.name !== 'N/A' && (
-          <div className="kalshinet-card p-4 text-center border-[#fbbf24]/30 bg-[#fbbf24]/5">
+          <div className="polynet-card p-4 text-center border-[#fbbf24]/30 bg-[#fbbf24]/5">
             <div className="text-xs font-semibold mb-2 text-[#fbbf24] uppercase tracking-wider">★ Current Leader</div>
             <div className="text-xl font-bold text-white">
               {bestPerformer.avatar} {bestPerformer.name}

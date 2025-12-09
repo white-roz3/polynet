@@ -49,7 +49,7 @@ export default function PolymarketMarkets() {
   
   if (loading && markets.length === 0) {
     return (
-      <div className="kalshinet-card p-4">
+      <div className="polynet-card p-4">
         <div className="text-white font-semibold mb-4 flex items-center gap-2 text-base">
           ◎ POLYMARKET FEED
         </div>
@@ -62,7 +62,7 @@ export default function PolymarketMarkets() {
   
   if (error) {
     return (
-      <div className="kalshinet-card p-4">
+      <div className="polynet-card p-4">
         <div className="text-white font-semibold mb-4 flex items-center gap-2 text-base">
           ◎ POLYMARKET FEED
         </div>
@@ -70,7 +70,7 @@ export default function PolymarketMarkets() {
           <div className="text-xs text-gray-400 mb-4">{error}</div>
           <button 
             onClick={fetchMarkets}
-            className="kalshinet-card px-4 py-2 font-semibold text-white hover:bg-[#1e2235] text-xs transition-colors"
+            className="polynet-card px-4 py-2 font-semibold text-white hover:bg-[#1e2235] text-xs transition-colors"
           >
             RETRY
           </button>
@@ -80,7 +80,7 @@ export default function PolymarketMarkets() {
   }
   
   return (
-    <div className="kalshinet-card p-4">
+    <div className="polynet-card p-4">
       <div className="flex justify-between items-center mb-4">
         <div className="text-white font-semibold flex items-center gap-2 text-base">
           ◎ POLYMARKET FEED
@@ -103,7 +103,7 @@ export default function PolymarketMarkets() {
           const endDate = new Date(market.endDate).toLocaleDateString();
           
           return (
-            <div key={market.id} className="kalshinet-card p-3 hover:bg-[#1e2235] transition-colors">
+            <div key={market.id} className="polynet-card p-3 hover:bg-[#1e2235] transition-colors">
               <div className="text-white text-sm mb-3 font-semibold leading-tight">
                 {market.question}
               </div>
@@ -144,7 +144,7 @@ export default function PolymarketMarkets() {
       <button
         onClick={fetchMarkets}
         disabled={loading}
-        className="mt-4 w-full kalshinet-card px-4 py-2 font-semibold text-white hover:bg-[#1e2235] disabled:opacity-50 text-xs transition-colors"
+        className="mt-4 w-full polynet-card px-4 py-2 font-semibold text-white hover:bg-[#1e2235] disabled:opacity-50 text-xs transition-colors"
       >
         {loading ? 'Refreshing...' : '↻ REFRESH MARKETS'}
       </button>

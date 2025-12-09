@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import '@/styles/kalshinet.css';
+import '@/styles/polynet.css';
 import { MainNav } from '@/components/navigation/MainNav';
 import { ModelIcon, AgentAvatar } from '@/components/ModelIcon';
 
@@ -151,7 +151,7 @@ export default function AgentsPage() {
 
   if (loading) {
     return (
-      <div className="kalshinet-container min-h-screen flex items-center justify-center">
+      <div className="polynet-container min-h-screen flex items-center justify-center">
         <div className="text-center">
           <div className="w-8 h-8 border-4 border-[#00FF9F] border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
           <p className="text-[#64748B]">Loading agents...</p>
@@ -161,7 +161,7 @@ export default function AgentsPage() {
   }
 
   return (
-    <div className="kalshinet-container min-h-screen">
+    <div className="polynet-container min-h-screen">
       <MainNav />
       
       <div className="max-w-[1600px] mx-auto px-6 py-8">
@@ -178,7 +178,7 @@ export default function AgentsPage() {
             <p className="text-[#64748B]">Live tracking of AI agent performance metrics</p>
           </div>
           
-          <Link href="/agents/create" className="kalshinet-btn kalshinet-btn-primary">
+          <Link href="/agents/create" className="polynet-btn polynet-btn-primary">
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 4v16m8-8H4" />
             </svg>
@@ -188,7 +188,7 @@ export default function AgentsPage() {
 
         <div className="grid lg:grid-cols-[280px_1fr] gap-8">
           {/* Left Sidebar - Filters */}
-          <aside className="kalshinet-sidebar">
+          <aside className="polynet-sidebar">
             <h2 
               className="text-xl font-bold mb-5"
               style={{ fontFamily: 'Outfit, sans-serif' }}
@@ -200,10 +200,10 @@ export default function AgentsPage() {
             <div className="mb-6">
               <h3 className="text-sm font-semibold text-[#94A3B8] mb-3 uppercase tracking-wider">Status</h3>
               <div className="space-y-2">
-                <button
-                  onClick={() => setFilter('all')}
+            <button
+              onClick={() => setFilter('all')}
                   className={`w-full text-left px-4 py-2.5 rounded-lg transition-all ${
-                    filter === 'all'
+                filter === 'all' 
                       ? 'font-semibold text-white'
                       : 'bg-[#12151e] text-[#94A3B8] hover:text-white hover:bg-[#181c28] border border-[rgba(255,255,255,0.06)]'
                   }`}
@@ -217,11 +217,11 @@ export default function AgentsPage() {
                   }}
                 >
                   All ({agents.length})
-                </button>
-                <button
-                  onClick={() => setFilter('active')}
+            </button>
+            <button
+              onClick={() => setFilter('active')}
                   className={`w-full text-left px-4 py-2.5 rounded-lg transition-all ${
-                    filter === 'active'
+                filter === 'active' 
                       ? 'font-semibold text-white'
                       : 'bg-[#12151e] text-[#94A3B8] hover:text-white hover:bg-[#181c28] border border-[rgba(255,255,255,0.06)]'
                   }`}
@@ -235,11 +235,11 @@ export default function AgentsPage() {
                   }}
                 >
                   Active ({agents.filter(a => a.is_active && !a.is_bankrupt).length})
-                </button>
-                <button
-                  onClick={() => setFilter('bankrupt')}
+            </button>
+            <button
+              onClick={() => setFilter('bankrupt')}
                   className={`w-full text-left px-4 py-2.5 rounded-lg transition-all ${
-                    filter === 'bankrupt'
+                filter === 'bankrupt' 
                       ? 'font-semibold text-white'
                       : 'bg-[#12151e] text-[#94A3B8] hover:text-white hover:bg-[#181c28] border border-[rgba(255,255,255,0.06)]'
                   }`}
@@ -253,9 +253,9 @@ export default function AgentsPage() {
                   }}
                 >
                   Bankrupt ({agents.filter(a => a.is_bankrupt).length})
-                </button>
+            </button>
               </div>
-            </div>
+          </div>
 
             {/* Metric Selector */}
             <div className="mb-6">
@@ -283,7 +283,7 @@ export default function AgentsPage() {
                   </button>
                 ))}
               </div>
-            </div>
+        </div>
 
             {/* Quick Stats */}
             <div className="pt-6 border-t border-[rgba(255,255,255,0.06)]">
@@ -315,7 +315,7 @@ export default function AgentsPage() {
 
           {/* Main Chart Area */}
           <main>
-            <div className="kalshinet-card p-6">
+            <div className="polynet-card p-6">
               {/* Chart Header */}
               <div className="flex items-center justify-between mb-6">
                 <div>
@@ -325,9 +325,9 @@ export default function AgentsPage() {
                   >
                     <span className="kn-gradient-text">{getMetricLabel()}</span>
                     <span className="text-white"> Leaderboard</span>
-                  </h2>
+            </h2>
                   <p className="text-sm text-[#64748B]">Real-time performance tracking</p>
-                </div>
+          </div>
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-[#FF2E97] rounded-full animate-pulse"></div>
                   <span className="text-xs text-[#64748B] uppercase tracking-wider" style={{ fontFamily: 'JetBrains Mono, monospace' }}>
@@ -340,7 +340,7 @@ export default function AgentsPage() {
               {sortedAgents.length === 0 ? (
                 <div className="text-center py-16">
                   <div className="text-[#64748B] mb-4">No agents found</div>
-                  <Link href="/agents/create" className="kalshinet-btn kalshinet-btn-primary">
+                  <Link href="/agents/create" className="polynet-btn polynet-btn-primary">
                     Create Agent
                   </Link>
                 </div>
@@ -377,7 +377,7 @@ export default function AgentsPage() {
                             <AgentAvatar agent={agent} size={40} />
                             <div className="flex-1 min-w-0">
                               <div className="font-semibold text-white truncate" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
-                                {agent.name}
+                  {agent.name}
                               </div>
                               <div className="text-xs text-[#64748B] truncate" style={{ fontFamily: 'JetBrains Mono, monospace' }}>
                                 {agent.celebrity_model || agent.strategy_type?.replace(/_/g, ' ') || 'AI Agent'}
@@ -410,48 +410,48 @@ export default function AgentsPage() {
                         {/* Expanded Details */}
                         {selectedAgent === agent.id && (
                           <div className="mt-4 pt-4 border-t border-[rgba(255,255,255,0.06)] grid grid-cols-2 gap-4 text-sm">
-                            <div>
+                  <div>
                               <div className="text-[#64748B] mb-1">Balance</div>
                               <div className="text-white font-semibold" style={{ fontFamily: 'JetBrains Mono, monospace' }}>
                                 ${(agent.balance || 0).toFixed(0)}
-                              </div>
-                            </div>
-                            <div>
+                    </div>
+                  </div>
+                  <div>
                               <div className="text-[#64748B] mb-1">Accuracy</div>
                               <div className="text-white font-semibold" style={{ fontFamily: 'JetBrains Mono, monospace' }}>
                                 {(agent.accuracy || 0).toFixed(0)}%
-                              </div>
-                            </div>
-                            <div>
+                    </div>
+                  </div>
+                  <div>
                               <div className="text-[#64748B] mb-1">Predictions</div>
                               <div className="text-white font-semibold" style={{ fontFamily: 'JetBrains Mono, monospace' }}>
                                 {agent.total_predictions || 0}
-                              </div>
-                            </div>
-                            <div>
+                    </div>
+                  </div>
+                  <div>
                               <div className="text-[#64748B] mb-1">ROI</div>
                               <div className={`font-semibold ${(agent.roi || 0) >= 0 ? 'text-[#00FF9F]' : 'text-[#FF2E97]'}`} style={{ fontFamily: 'JetBrains Mono, monospace' }}>
                                 {(agent.roi || 0) >= 0 ? '+' : ''}{(agent.roi || 0).toFixed(1)}%
-                              </div>
-                            </div>
+                    </div>
+                  </div>
                             <div className="col-span-2 mt-2">
                               <Link 
                                 href={`/agents/${agent.id}`}
-                                className="kalshinet-btn kalshinet-btn-secondary w-full text-sm"
+                                className="polynet-btn polynet-btn-secondary w-full text-sm"
                               >
                                 View Full Details →
                               </Link>
-                            </div>
-                          </div>
+                  </div>
+                </div>
                         )}
                       </div>
                     );
                   })}
                 </div>
               )}
-            </div>
+              </div>
           </main>
-        </div>
+          </div>
       </div>
     </div>
   );

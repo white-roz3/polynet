@@ -42,7 +42,7 @@ export default function RecentPredictions() {
   };
   
   return (
-    <div className="kalshinet-card p-4">
+    <div className="polynet-card p-4">
       <div className="flex justify-between items-center mb-4">
         <div className="text-white font-semibold text-base">
           ▶ RECENT PREDICTIONS
@@ -66,7 +66,7 @@ export default function RecentPredictions() {
       ) : (
         <div className="space-y-2">
           {predictions.map(pred => (
-            <div key={pred.id} className="kalshinet-card p-3 hover:bg-[#1e2235] transition-colors">
+            <div key={pred.id} className="polynet-card p-3 hover:bg-[#1e2235] transition-colors">
               <div className="flex justify-between items-start gap-2 mb-2">
                 <div className="text-sm font-semibold leading-tight flex-1 text-white">
                   {pred.polymarket_markets?.question?.slice(0, 60) || 'Unknown market'}...

@@ -88,13 +88,17 @@ export function ModelIcon({ model, size = 24, className = '' }: ModelIconProps) 
     );
   }
   
-  // xAI / Grok - White X on black
+  // xAI / Grok - Official Grok logo from worldvectorlogo.com
   if (modelLower.includes('grok') || modelLower.includes('xai')) {
     return (
-      <svg width={size} height={size} viewBox="0 0 24 24" fill="none" className={className}>
-        <rect width="24" height="24" rx="4" fill="black"/>
-        <path d="M6 6L12 12M12 12L18 18M12 12L18 6M12 12L6 18" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-      </svg>
+      <img 
+        src="https://worldvectorlogo.com/download/grok-1.svg"
+        alt="xAI Grok"
+        width={size}
+        height={size}
+        className={className}
+        style={{ borderRadius: '6px', objectFit: 'contain' }}
+      />
     );
   }
   

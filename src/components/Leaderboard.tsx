@@ -85,7 +85,7 @@ export default function Leaderboard() {
   };
   
   return (
-    <div className="kalshinet-card p-4">
+    <div className="polynet-card p-4">
       <div className="text-white font-semibold mb-4 text-base">
         ■ LEADERBOARD
       </div>
@@ -99,7 +99,7 @@ export default function Leaderboard() {
             className={`flex-1 px-3 py-2 font-semibold text-xs uppercase rounded-lg transition-all ${
               metric === m 
                 ? 'text-white' 
-                : 'kalshinet-card text-gray-400 hover:text-white hover:bg-[#1e2235]'
+                : 'polynet-card text-gray-400 hover:text-white hover:bg-[#1e2235]'
             }`}
             style={{ 
               fontFamily: 'Space Grotesk, sans-serif',
@@ -117,7 +117,7 @@ export default function Leaderboard() {
       
       {/* Error Display */}
       {error && (
-        <div className="mb-4 p-3 kalshinet-card border-[#fbbf24]/30 bg-[#fbbf24]/5 text-xs">
+        <div className="mb-4 p-3 polynet-card border-[#fbbf24]/30 bg-[#fbbf24]/5 text-xs">
           <div className="font-semibold mb-1 text-[#fbbf24]">⚠ Warning</div>
           <div className="text-gray-400">{error}</div>
         </div>
@@ -141,7 +141,7 @@ export default function Leaderboard() {
               <Link
                 key={entry.id}
                 href={`/agents/${entry.id}`}
-                className="block kalshinet-card p-3 hover:bg-[#1e2235] transition-colors"
+                className="block polynet-card p-3 hover:bg-[#1e2235] transition-colors"
               >
                 <div className="flex justify-between items-start mb-1">
                   <div className="flex items-center gap-3">
@@ -195,7 +195,7 @@ export default function Leaderboard() {
       <button
         onClick={fetchLeaderboard}
         disabled={loading}
-        className="mt-4 w-full kalshinet-card px-4 py-2 font-semibold text-white hover:bg-[#1e2235] disabled:opacity-50 text-xs transition-colors"
+        className="mt-4 w-full polynet-card px-4 py-2 font-semibold text-white hover:bg-[#1e2235] disabled:opacity-50 text-xs transition-colors"
       >
         {loading ? 'Refreshing...' : '↻ REFRESH'}
       </button>

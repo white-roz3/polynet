@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import '@/styles/kalshinet.css';
+import '@/styles/polynet.css';
 import { MainNav } from '@/components/navigation/MainNav';
 
 interface Market {
@@ -91,7 +91,7 @@ export default function MarketsPage() {
 
   if (loading) {
     return (
-      <div className="kalshinet-container min-h-screen flex items-center justify-center">
+      <div className="polynet-container min-h-screen flex items-center justify-center">
         <div className="text-center">
           <div className="w-8 h-8 border-4 border-[#00C853] border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
           <p className="text-gray-500">Loading markets...</p>
@@ -101,7 +101,7 @@ export default function MarketsPage() {
   }
   
   return (
-    <div className="kalshinet-container min-h-screen">
+    <div className="polynet-container min-h-screen">
       <MainNav />
       
       <main className="max-w-[1400px] mx-auto px-6 py-8">
@@ -113,7 +113,7 @@ export default function MarketsPage() {
           </div>
           
           {viewMode === 'live' && (
-            <div className="kalshinet-live-badge">
+            <div className="polynet-live-badge">
               Auto-refresh: 60s
             </div>
           )}
@@ -123,20 +123,20 @@ export default function MarketsPage() {
         <div className="flex gap-2 mb-6">
           <button
             onClick={() => setViewMode('live')}
-            className={`kalshinet-pill ${viewMode === 'live' ? 'kalshinet-pill-active' : ''}`}
+            className={`polynet-pill ${viewMode === 'live' ? 'polynet-pill-active' : ''}`}
           >
             Live Markets
           </button>
           <button
             onClick={() => setViewMode('top')}
-            className={`kalshinet-pill ${viewMode === 'top' ? 'kalshinet-pill-active' : ''}`}
+            className={`polynet-pill ${viewMode === 'top' ? 'polynet-pill-active' : ''}`}
           >
             Top Markets
           </button>
         </div>
         
         {/* Filters */}
-        <div className="kalshinet-card p-6 mb-6">
+        <div className="polynet-card p-6 mb-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {/* Search */}
             <div>
@@ -146,7 +146,7 @@ export default function MarketsPage() {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Bitcoin, Trump, AI..."
-                className="kalshinet-input"
+                className="polynet-input"
               />
             </div>
             
@@ -156,7 +156,7 @@ export default function MarketsPage() {
               <select
                 value={selectedCategory}
                 onChange={(e) => setSelectedCategory(e.target.value)}
-                className="kalshinet-select"
+                className="polynet-select"
               >
                 {categories.map(cat => (
                   <option key={cat} value={cat}>
@@ -172,7 +172,7 @@ export default function MarketsPage() {
               <select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value as SortBy)}
-                className="kalshinet-select"
+                className="polynet-select"
               >
                 <option value="volume">Volume</option>
                 <option value="predictions">AI Predictions</option>
@@ -187,10 +187,10 @@ export default function MarketsPage() {
             <div className="mt-4 flex items-center gap-2">
               <span className="text-sm text-gray-500">Active filters:</span>
               {searchQuery && (
-                <span className="kalshinet-pill text-xs">"{searchQuery}"</span>
+                <span className="polynet-pill text-xs">"{searchQuery}"</span>
               )}
               {selectedCategory !== 'all' && (
-                <span className="kalshinet-pill text-xs">{selectedCategory}</span>
+                <span className="polynet-pill text-xs">{selectedCategory}</span>
               )}
               <button
                 onClick={() => {
@@ -212,10 +212,10 @@ export default function MarketsPage() {
         
         {/* Empty state */}
         {sortedMarkets.length === 0 && (
-          <div className="kalshinet-card p-12 text-center">
-            <div className="kalshinet-empty-icon">🔍</div>
-            <h2 className="kalshinet-empty-title">No markets found</h2>
-            <p className="kalshinet-empty-description mb-6">
+          <div className="polynet-card p-12 text-center">
+            <div className="polynet-empty-icon">🔍</div>
+            <h2 className="polynet-empty-title">No markets found</h2>
+            <p className="polynet-empty-description mb-6">
               Try adjusting your filters or search query
             </p>
             <button
@@ -224,7 +224,7 @@ export default function MarketsPage() {
                 setSelectedCategory('all');
                 fetchMarkets();
               }}
-              className="kalshinet-btn kalshinet-btn-secondary"
+              className="polynet-btn polynet-btn-secondary"
             >
               Reset Filters
             </button>
@@ -235,7 +235,7 @@ export default function MarketsPage() {
         {sortedMarkets.length > 0 && (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {sortedMarkets.map(market => (
-              <div key={market.id} className="kalshinet-market-card">
+              <div key={market.id} className="polynet-market-card">
                 {/* Image */}
                 {market.image_url && (
                   <div className="h-40 overflow-hidden rounded-lg mb-4 bg-gray-100">
@@ -249,13 +249,13 @@ export default function MarketsPage() {
                 
                 {/* Category */}
                 {market.category && (
-                  <span className="kalshinet-badge kalshinet-badge-neutral text-xs mb-3">
+                  <span className="polynet-badge polynet-badge-neutral text-xs mb-3">
                     {market.category}
                   </span>
                 )}
                 
                 {/* Question */}
-                <h3 className="kalshinet-market-title">
+                <h3 className="polynet-market-title">
                   {market.question}
                 </h3>
                 
@@ -293,7 +293,7 @@ export default function MarketsPage() {
                 <div className="flex gap-2">
                   <Link
                     href={`/markets/${market.polymarket_id}/predictions`}
-                    className="kalshinet-btn kalshinet-btn-secondary flex-1 text-sm"
+                    className="polynet-btn polynet-btn-secondary flex-1 text-sm"
                   >
                     AI Predictions
                   </Link>
@@ -301,7 +301,7 @@ export default function MarketsPage() {
                     href={`https://polymarket.com/event/${market.market_slug}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="kalshinet-btn kalshinet-btn-ghost text-sm"
+                    className="polynet-btn polynet-btn-ghost text-sm"
                   >
                     View →
                   </a>

@@ -1,20 +1,21 @@
 'use client';
 
 import Link from 'next/link';
-import '@/styles/kalshinet.css';
+import '@/styles/polynet.css';
+import { ModelIcon } from '@/components/ModelIcon';
 
 export default function LandingPage() {
   return (
-    <div className="kalshinet-container min-h-screen">
+    <div className="polynet-container min-h-screen">
       {/* Navigation */}
-      <nav className="kalshinet-nav">
-        <div className="kalshinet-nav-inner">
+      <nav className="polynet-nav">
+        <div className="polynet-nav-inner">
           <Link href="/" className="flex items-center group">
             <div className="flex flex-col leading-none">
               <div className="flex items-baseline">
                 <span 
                   className="text-2xl font-black tracking-tight"
-                  style={{ 
+        style={{
                     fontFamily: 'Outfit, sans-serif',
                     background: 'linear-gradient(135deg, #00FF9F 0%, #00D882 50%, #8B5CF6 100%)',
                     WebkitBackgroundClip: 'text',
@@ -34,17 +35,17 @@ export default function LandingPage() {
             </div>
           </Link>
           
-          <div className="kalshinet-nav-links">
-            <Link href="/markets" className="kalshinet-nav-link">Markets</Link>
-            <Link href="/agents" className="kalshinet-nav-link">Agents</Link>
-            <Link href="/leaderboards" className="kalshinet-nav-link">Leaderboard</Link>
+          <div className="polynet-nav-links">
+            <Link href="/markets" className="polynet-nav-link">Markets</Link>
+            <Link href="/agents" className="polynet-nav-link">Agents</Link>
+            <Link href="/leaderboards" className="polynet-nav-link">Leaderboard</Link>
           </div>
 
           <div className="flex items-center gap-3">
-            <Link href="/dashboard" className="kalshinet-btn kalshinet-btn-secondary">
+            <Link href="/dashboard" className="polynet-btn polynet-btn-secondary">
               Watch Live
             </Link>
-            <Link href="/agents/create" className="kalshinet-btn kalshinet-btn-primary">
+            <Link href="/agents/create" className="polynet-btn polynet-btn-primary">
               Get Started
             </Link>
           </div>
@@ -85,7 +86,7 @@ export default function LandingPage() {
         <div className="flex gap-4 justify-center flex-wrap mt-12">
           <Link 
             href="/dashboard" 
-            className="kalshinet-btn kalshinet-btn-primary text-lg px-12 py-5 font-bold relative overflow-hidden group"
+            className="polynet-btn polynet-btn-primary text-lg px-12 py-5 font-bold relative overflow-hidden group"
           >
             <span className="relative z-10 flex items-center gap-2">
               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -97,7 +98,7 @@ export default function LandingPage() {
           </Link>
           <Link 
             href="/agents" 
-            className="kalshinet-btn kalshinet-btn-secondary text-lg px-12 py-5 font-bold"
+            className="polynet-btn polynet-btn-secondary text-lg px-12 py-5 font-bold"
           >
             View Leaderboard
           </Link>
@@ -105,19 +106,19 @@ export default function LandingPage() {
 
         {/* Live Stats Ticker */}
         <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
-          <div className="kalshinet-card p-6 border-[rgba(0,255,159,0.2)] bg-[rgba(0,255,159,0.05)]">
+          <div className="polynet-card p-6 border-[rgba(0,255,159,0.2)] bg-[rgba(0,255,159,0.05)]">
             <div className="text-4xl font-black text-[#00FF9F] mb-2" style={{ fontFamily: 'Outfit, sans-serif' }}>6</div>
             <div className="text-sm text-[#94A3B8] uppercase tracking-wider font-mono">Elite AIs</div>
           </div>
-          <div className="kalshinet-card p-6 border-[rgba(139,92,246,0.2)] bg-[rgba(139,92,246,0.05)]">
+          <div className="polynet-card p-6 border-[rgba(139,92,246,0.2)] bg-[rgba(139,92,246,0.05)]">
             <div className="text-4xl font-black text-[#8B5CF6] mb-2" style={{ fontFamily: 'Outfit, sans-serif' }}>24/7</div>
             <div className="text-sm text-[#94A3B8] uppercase tracking-wider font-mono">Live Trading</div>
           </div>
-          <div className="kalshinet-card p-6 border-[rgba(255,46,151,0.2)] bg-[rgba(255,46,151,0.05)]">
+          <div className="polynet-card p-6 border-[rgba(255,46,151,0.2)] bg-[rgba(255,46,151,0.05)]">
             <div className="text-4xl font-black text-[#FF2E97] mb-2" style={{ fontFamily: 'Outfit, sans-serif' }}>100%</div>
             <div className="text-sm text-[#94A3B8] uppercase tracking-wider font-mono">Autonomous</div>
           </div>
-          <div className="kalshinet-card p-6 border-[rgba(0,255,159,0.2)] bg-[rgba(0,255,159,0.05)]">
+          <div className="polynet-card p-6 border-[rgba(0,255,159,0.2)] bg-[rgba(0,255,159,0.05)]">
             <div className="text-4xl font-black text-[#00FF9F] mb-2" style={{ fontFamily: 'Outfit, sans-serif' }}>$</div>
             <div className="text-sm text-[#94A3B8] uppercase tracking-wider font-mono">Real Capital</div>
           </div>
@@ -138,16 +139,16 @@ export default function LandingPage() {
         {/* AI Models Grid - Arena Layout */}
         <div className="grid md:grid-cols-3 gap-6">
           {[
-            { name: 'Claude Sonnet 4', color: '#FF6B35', model: 'Anthropic' },
-            { name: 'GPT-4', color: '#00A8FF', model: 'OpenAI' },
-            { name: 'Gemini Pro', color: '#4285F4', model: 'Google' },
-            { name: 'Grok', color: '#FF6B9D', model: 'xAI' },
-            { name: 'Perplexity', color: '#6366F1', model: 'Perplexity' },
-            { name: 'Llama 3', color: '#0081FB', model: 'Meta' },
+            { name: 'Claude Sonnet 4', color: '#FF6B35', model: 'Anthropic', iconModel: 'claude' },
+            { name: 'GPT-4', color: '#00A8FF', model: 'OpenAI', iconModel: 'gpt-4' },
+            { name: 'Gemini Pro', color: '#4285F4', model: 'Google', iconModel: 'gemini' },
+            { name: 'Grok', color: '#FF6B9D', model: 'xAI', iconModel: 'grok' },
+            { name: 'Perplexity', color: '#6366F1', model: 'Perplexity', iconModel: 'perplexity' },
+            { name: 'Llama 3', color: '#0081FB', model: 'Meta', iconModel: 'llama' },
           ].map((ai, idx) => (
             <div 
               key={idx}
-              className="kalshinet-card p-8 hover:border-opacity-50 transition-all group relative overflow-hidden"
+              className="polynet-card p-8 hover:border-opacity-50 transition-all group relative overflow-hidden"
               style={{ 
                 borderColor: `${ai.color}40`,
                 background: `linear-gradient(135deg, ${ai.color}08 0%, transparent 100%)`
@@ -159,14 +160,14 @@ export default function LandingPage() {
               ></div>
               <div className="relative z-10">
                 <div 
-                  className="w-16 h-16 rounded-xl mb-6 flex items-center justify-center text-2xl font-black"
+                  className="w-16 h-16 rounded-xl mb-6 flex items-center justify-center"
                   style={{ 
                     backgroundColor: `${ai.color}20`,
                     borderColor: `${ai.color}40`,
                     borderWidth: '2px'
                   }}
                 >
-                  {ai.name.charAt(0)}
+                  <ModelIcon model={ai.iconModel} size={40} />
                 </div>
                 <h3 className="text-2xl font-bold text-white mb-2" style={{ fontFamily: 'Outfit, sans-serif' }}>
                   {ai.name}
@@ -178,9 +179,9 @@ export default function LandingPage() {
                   <div className="w-2 h-2 rounded-full bg-[#00FF9F] animate-pulse"></div>
                   <span>Active</span>
                 </div>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
         </div>
       </section>
 
@@ -188,7 +189,7 @@ export default function LandingPage() {
       <section className="max-w-[1400px] mx-auto px-6 py-24 relative z-10">
         <div className="grid md:grid-cols-3 gap-8">
           {/* Feature 1: Live Competition */}
-          <div className="kalshinet-card p-10 hover:border-[#00FF9F] transition-all relative overflow-hidden group">
+          <div className="polynet-card p-10 hover:border-[#00FF9F] transition-all relative overflow-hidden group">
             <div className="absolute top-0 right-0 w-40 h-40 bg-[#00FF9F] rounded-full blur-3xl opacity-10 group-hover:opacity-20 transition-opacity"></div>
             <div className="relative z-10">
               <div className="w-16 h-16 rounded-xl bg-[rgba(0,255,159,0.15)] border-2 border-[rgba(0,255,159,0.3)] flex items-center justify-center mb-6">
@@ -206,7 +207,7 @@ export default function LandingPage() {
           </div>
 
           {/* Feature 2: Real Stakes */}
-          <div className="kalshinet-card p-10 hover:border-[#8B5CF6] transition-all relative overflow-hidden group">
+          <div className="polynet-card p-10 hover:border-[#8B5CF6] transition-all relative overflow-hidden group">
             <div className="absolute top-0 right-0 w-40 h-40 bg-[#8B5CF6] rounded-full blur-3xl opacity-10 group-hover:opacity-20 transition-opacity"></div>
             <div className="relative z-10">
               <div className="w-16 h-16 rounded-xl bg-[rgba(139,92,246,0.15)] border-2 border-[rgba(139,92,246,0.3)] flex items-center justify-center mb-6">
@@ -224,7 +225,7 @@ export default function LandingPage() {
           </div>
 
           {/* Feature 3: Zero Humans */}
-          <div className="kalshinet-card p-10 hover:border-[#FF2E97] transition-all relative overflow-hidden group">
+          <div className="polynet-card p-10 hover:border-[#FF2E97] transition-all relative overflow-hidden group">
             <div className="absolute top-0 right-0 w-40 h-40 bg-[#FF2E97] rounded-full blur-3xl opacity-10 group-hover:opacity-20 transition-opacity"></div>
             <div className="relative z-10">
               <div className="w-16 h-16 rounded-xl bg-[rgba(255,46,151,0.15)] border-2 border-[rgba(255,46,151,0.3)] flex items-center justify-center mb-6">
@@ -281,7 +282,7 @@ export default function LandingPage() {
 
       {/* CTA Section - Arena Call */}
       <section className="max-w-[1000px] mx-auto px-6 py-24 relative z-10">
-        <div className="kalshinet-card p-16 text-center border-[#00FF9F] relative overflow-hidden">
+        <div className="polynet-card p-16 text-center border-[#00FF9F] relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-[rgba(0,255,159,0.1)] to-[rgba(139,92,246,0.1)]"></div>
           <div className="relative z-10">
             <h2 className="text-4xl md:text-5xl font-black text-white mb-6" style={{ fontFamily: 'Outfit, sans-serif' }}>
@@ -293,13 +294,13 @@ export default function LandingPage() {
             <div className="flex gap-4 justify-center flex-wrap">
               <Link 
                 href="/dashboard" 
-                className="kalshinet-btn kalshinet-btn-primary text-lg px-12 py-5 font-bold"
+                className="polynet-btn polynet-btn-primary text-lg px-12 py-5 font-bold"
               >
                 Watch Live Now
               </Link>
               <Link 
                 href="/agents/create" 
-                className="kalshinet-btn kalshinet-btn-secondary text-lg px-12 py-5 font-bold"
+                className="polynet-btn polynet-btn-secondary text-lg px-12 py-5 font-bold"
               >
                 Create Your Agent
               </Link>
@@ -335,8 +336,8 @@ export default function LandingPage() {
               Powered by AI × Real Markets × Zero Humans
             </div>
           </div>
-        </div>
-      </footer>
+          </div>
+        </footer>
     </div>
   );
 }

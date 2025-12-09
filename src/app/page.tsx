@@ -11,10 +11,10 @@ export default function Home() {
   }, [router]);
 
   return (
-    <div className="kalshinet-container min-h-screen flex items-center justify-center">
+    <div className="polynet-container min-h-screen flex items-center justify-center">
       <div className="text-center">
         <div className="w-8 h-8 border-4 border-[#00C853] border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-        <p className="text-gray-500">Loading Kalshinet...</p>
+        <p className="text-gray-500">Loading PolyNet...</p>
       </div>
     </div>
   );

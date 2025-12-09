@@ -1,9 +1,19 @@
-import db, { initDatabase } from './sqlite';
+import getDb, { initDatabase } from './sqlite';
 import { ethers } from 'ethers';
 import { CELEBRITY_AGENTS } from '../celebrity-agents';
 
-// Ensure database is initialized
-initDatabase();
+// Ensure database is initialized (lazy, only when needed)
+let dbInitialized = false;
+function ensureDbInitialized() {
+  if (!dbInitialized) {
+    try {
+      initDatabase();
+      dbInitialized = true;
+    } catch (error: any) {
+      console.error('Failed to initialize database in agents.ts:', error);
+    }
+  }
+}
 
 export interface Agent {
   id: string;
@@ -22,42 +32,86 @@ export interface Agent {
 
 // Get all agents
 export function getAllAgents(): Agent[] {
-  const stmt = db.prepare('SELECT * FROM agents ORDER BY created_at DESC');
-  return stmt.all() as Agent[];
+  try {
+    ensureDbInitialized();
+    const db = getDb();
+    if (!db) {
+      console.error('Database not available in getAllAgents');
+      return [];
+    }
+    const stmt = db.prepare('SELECT * FROM agents ORDER BY created_at DESC');
+    const results = stmt.all() as Agent[];
+    console.log(`[getAllAgents] Found ${results.length} agents`);
+    return results;
+  } catch (error: any) {
+    console.error('Error in getAllAgents:', error);
+    console.error('Error stack:', error?.stack);
+    return [];
+  }
 }
 
 // Get celebrity agents
 export function getCelebrityAgents(): Agent[] {
-  const stmt = db.prepare('SELECT * FROM agents WHERE is_celebrity = 1 ORDER BY created_at DESC');
-  return stmt.all() as Agent[];
+  try {
+    ensureDbInitialized();
+    const db = getDb();
+    if (!db) {
+      console.error('Database not available in getCelebrityAgents');
+      return [];
+    }
+    const stmt = db.prepare('SELECT * FROM agents WHERE is_celebrity = 1 ORDER BY created_at DESC');
+    const results = stmt.all() as Agent[];
+    console.log(`[getCelebrityAgents] Found ${results.length} agents`);
+    return results;
+  } catch (error: any) {
+    console.error('Error in getCelebrityAgents:', error);
+    console.error('Error stack:', error?.stack);
+    return [];
+  }
 }
 
 // Get single agent
 export function getAgent(id: string): Agent | undefined {
-  const stmt = db.prepare('SELECT * FROM agents WHERE id = ?');
-  return stmt.get(id) as Agent | undefined;
+  try {
+    const db = getDb();
+    if (!db) {
+      console.error('Database not available in getAgent');
+      return undefined;
+    }
+    const stmt = db.prepare('SELECT * FROM agents WHERE id = ?');
+    return stmt.get(id) as Agent | undefined;
+  } catch (error) {
+    console.error('Error in getAgent:', error);
+    return undefined;
+  }
 }
 
 // Insert agent
 export function insertAgent(agent: Omit<Agent, 'created_at'>) {
-  const stmt = db.prepare(`
-    INSERT INTO agents (id, name, strategy, balance, accuracy, total_predictions, is_celebrity, celebrity_model, avatar, traits, wallet_address, created_at)
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP)
-  `);
+  try {
+    const db = getDb();
+    const stmt = db.prepare(`
+      INSERT INTO agents (id, name, strategy, balance, accuracy, total_predictions, is_celebrity, celebrity_model, avatar, traits, wallet_address, created_at)
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP)
+    `);
 
-  stmt.run(
-    agent.id,
-    agent.name,
-    agent.strategy,
-    agent.balance,
-    agent.accuracy || 0,
-    agent.total_predictions || 0,
-    agent.is_celebrity ? 1 : 0,
-    agent.celebrity_model || null,
-    agent.avatar || null,
-    agent.traits || null,
-    agent.wallet_address || null
-  );
+    stmt.run(
+      agent.id,
+      agent.name,
+      agent.strategy,
+      agent.balance,
+      agent.accuracy || 0,
+      agent.total_predictions || 0,
+      agent.is_celebrity ? 1 : 0,
+      agent.celebrity_model || null,
+      agent.avatar || null,
+      agent.traits || null,
+      agent.wallet_address || null
+    );
+  } catch (error) {
+    console.error('Error in insertAgent:', error);
+    throw error;
+  }
 }
 
 // Seed celebrity agents
@@ -66,6 +120,8 @@ export function seedCelebrityAgents() {
   
   let added = 0;
   let skipped = 0;
+  
+  const db = getDb();
   
   for (const celebrity of CELEBRITY_AGENTS) {
     try {
