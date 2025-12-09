@@ -98,9 +98,17 @@ export default function Leaderboard() {
             onClick={() => setMetric(m)}
             className={`flex-1 px-3 py-2 font-semibold text-xs uppercase rounded-lg transition-all ${
               metric === m 
-                ? 'bg-[#00C853] text-black' 
+                ? 'text-white' 
                 : 'kalshinet-card text-gray-400 hover:text-white hover:bg-[#1e2235]'
             }`}
+            style={{ 
+              fontFamily: 'Space Grotesk, sans-serif',
+              ...(metric === m ? {
+                background: 'linear-gradient(135deg, rgba(31, 184, 205, 0.3) 0%, rgba(66, 133, 244, 0.3) 25%, rgba(139, 92, 246, 0.4) 50%, rgba(255, 46, 151, 0.3) 100%)',
+                border: '1px solid rgba(139, 92, 246, 0.5)',
+                boxShadow: '0 4px 20px rgba(139, 92, 246, 0.2)'
+              } : {})
+            }}
           >
             {m}
           </button>

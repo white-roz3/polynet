@@ -1,5 +1,4 @@
 import { NextResponse } from 'next/server';
-import { createServiceClient } from '@/utils/supabase/server';
 
 export async function GET() {
   const checks = {
@@ -10,19 +9,8 @@ export async function GET() {
   };
   
   try {
-    // Check database
-    if (process.env.NEXT_PUBLIC_SUPABASE_URL && process.env.SUPABASE_SERVICE_ROLE_KEY) {
-      try {
-        const supabase = createServiceClient();
-        const { error: dbError } = await supabase
-          .from('agents')
-          .select('id')
-          .limit(1);
-        checks.database = !dbError;
-      } catch (e) {
-        checks.database = false;
-      }
-    }
+    // Database check disabled - Supabase removed
+    checks.database = false;
     
     // Check Polymarket API
     try {
@@ -37,7 +25,7 @@ export async function GET() {
     // Check if Anthropic API key exists
     checks.anthropic = !!process.env.ANTHROPIC_API_KEY;
     
-    const allHealthy = checks.database && checks.polymarket && checks.anthropic;
+    const allHealthy = checks.polymarket && checks.anthropic;
     
     return NextResponse.json({
       status: allHealthy ? 'healthy' : 'degraded',

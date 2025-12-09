@@ -178,6 +178,92 @@ Shows:
 
 ---
 
+Redesign the PolyNet landing page to make it more compelling and exciting. The current messaging is bland and doesn't capture the unique spectacle of watching AI models compete against each other with real money.
+
+CURRENT ISSUES:
+- "AI-Powered Prediction Markets" is generic and boring
+- Doesn't emphasize the COMPETITIVE nature (AI vs AI battle)
+- Misses the entertainment/spectator sport angle
+- Doesn't highlight that it's LIVE with REAL money
+- Tagline is too corporate and safe
+
+WHAT MAKES POLYNET UNIQUE:
+- 6 elite AI models (Claude, GPT-5, Gemini, Grok, Perplexity, Llama) competing head-to-head
+- Real capital at stake (not paper trading)
+- Zero human intervention (fully autonomous)
+- Live, 24/7 competition you can watch
+- Full transparency on every decision and trade
+- It's like watching AI gladiators fight with money
+
+NEW BRAND DIRECTION:
+
+Make it feel like:
+- A spectator sport (UFC/boxing for AI)
+- High-stakes gambling (poker tournament vibes)
+- Reality TV (Survivor but with AI models)
+- Gaming arena (esports energy)
+- Betting on horse races, but the horses are superintelligent AIs
+
+HERO HEADLINE OPTIONS (choose best or create new):
+
+Option A - Competition Angle:
+"The AI Arena
+Six Models. Real Money. One Winner."
+
+Option B - Spectator Sport:
+"Watch AIs Battle for Supremacy
+Live Predictions. Real Capital. Zero Humans."
+
+Option C - Gambling Vibes:
+"Bet on the Betters
+Which AI Predicts Best?"
+
+Option D - Aggressive/Hype:
+"AI Cage Match
+Claude vs GPT-5 vs Gemini vs Grok vs Perplexity vs Llama"
+
+Option E - Mystery/Intrigue:
+"Who's the Smartest Model?
+Watch Them Fight to Find Out"
+
+Option F - Financial Markets:
+"The Ultimate AI Trading Competition
+$XXX,XXX on the Line"
+
+Option G - Simple/Direct:
+"AI Models Competing Live
+Real Markets. Real Money. Real Time."
+
+SUBHEADLINE (explain what this is):
+Should answer: What are they doing? Why should I care? What makes this different?
+
+Examples:
+- "Six autonomous AI agents trade prediction markets 24/7 with real capital. Watch their strategies, track their performance, see who wins."
+- "The world's leading AI models compete on Polymarket with zero human oversight. Every trade is autonomous. Every decision is transparent. Every result is real."
+- "Claude, GPT-5, Gemini, Grok, Perplexity, and Llama battle for prediction market supremacy. Follow their reasoning, compare their strategies, bet on the winner."
+
+VISUAL AESTHETIC:
+- Arena/stadium lighting (spotlights, dramatic shadows)
+- Versus screen layouts (Model A vs Model B)
+- Live ticker/scoreboard showing real-time positions
+- Color-coded AI avatars (each model has signature color)
+- Charts/graphs showing performance over time
+- "LIVE" indicator pulsing (like Twitch streams)
+- Leaderboard always visible
+
+FEATURES SECTION (redesign these 3 points):
+
+Current: "6 AI Models • Real Markets • 24/7 Automation"
+
+New Feature Cards:
+1. "Live Competition" - Watch 6 elite AIs make predictions in real-time with full reasoning transparency
+2. "Real Stakes" - Actual capital deployed on Polymarket, not simulations or paper trading
+3. "Zero Humans" - Completely autonomous agents, no human intervention or bias
+
+Or alternative angle:
+1. "Elite Competitors" - The 6 most advanced AI models available today
+2. "Open Intelligence" - Every decision, every strategy, every trade is fully transparent
+3. "Proven Edge" - Track​​​​​​​​​​​​​​​​
 ## 🗄️ Database Schema
 
 ### `breeding_history` table
